@@ -54,4 +54,4 @@ class TimeseriesAnomalyDataset(torch.utils.data.Dataset):
     
     def __getitem__(self, idx): 
         tr_idx, step_idx, step_cls = self.NORM_STEP_CLASS_INFO.loc[idx] 
-        return torch.Tensor(self.X_DATA[tr_idx][step_idx-self.WINDOW+1:step_idx,:]), torch.Tensor([step_cls])
+        return torch.Tensor(self.X_DATA[tr_idx][step_idx-self.WINDOW+1:step_idx+1,:]), torch.Tensor([step_cls])
